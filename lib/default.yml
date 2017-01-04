@@ -1,5 +1,5 @@
 ---
 gem_sources:
-  rubygems: https://rubygems.org,
+  rubygems: https://rubygems.org
   rchina: https://gems.ruby-china.org
   taobao: https://ruby.taobao.org
