@@ -11,6 +11,7 @@ Install it yourself as:
 ## Usage
 
 ```bash
+cgem help
 cgem use rchina
 cgem use rubygems
 cgem list
