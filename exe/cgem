@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'cgem'
+
+class CgemCLI < Thor
+  default_command :status
+
+  desc 'list', 'list current gem sources'
+  def list
+    puts Cgem.gem_sources
+  end
+
+  desc 'use SOURCE_KEY', 'use specified gem source'
+  def use(source_key)
+    source_key = source_key.to_s.strip
+    source = Cgem.gem_sources[source_key]
+    abort "Not fource source for #{source_key}" if source.nil?
+    Cgem.set_gemrc_sources(source)
+    Cgem::BundleMirror.new.set(source)
+    puts "==set #{source} as default gem source"
+  end
+
+  desc 'status', 'get current gem status'
+  def status
+    puts Cgem.gemrc_sources
+    puts Cgem::BundleMirror.new.get
+  end
+end
+
+CgemCLI.start
