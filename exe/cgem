@@ -28,6 +28,13 @@ class CgemCLI < Thor
     puts Cgem.gemrc_sources
     puts Cgem::BundleMirror.new.get
   end
+
+  desc 'version', 'show version'
+  def version
+    puts Cgem::VERSION
+  end
+  map '-v' => :version
+  map '--version' => :version
 end
 
 CgemCLI.start
