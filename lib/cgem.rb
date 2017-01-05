@@ -48,7 +48,7 @@ module Cgem
       if File.exists?(dot_gemrc)
         settings = YAML.load(File.read(dot_gemrc))
       end
-      settings[:sources] = "#{source.chomp('/')}/"
+      settings[:sources] = ["#{source.chomp('/')}/"]
       File.write(dot_gemrc, settings.to_yaml)
     end
 

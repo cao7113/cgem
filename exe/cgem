@@ -10,6 +10,8 @@ class CgemCLI < Thor
   def list
     puts Cgem.gem_sources
   end
+  map ls: :list
+  map '-l' => :list
 
   desc 'use SOURCE_KEY', 'use specified gem source'
   def use(source_key)
