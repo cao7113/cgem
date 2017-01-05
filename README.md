@@ -13,9 +13,11 @@ Install it yourself as:
 ```bash
 cgem help
 cgem use rchina
-cgem use rubygems
+cgem use default # rubygems
 cgem list
-cgem 
+cgem setup rchina
+GEM_SOURCE=rchina cgem setup
+cgem status      # default
 ```
 
 ## Development

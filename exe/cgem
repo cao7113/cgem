@@ -35,6 +35,15 @@ class CgemCLI < Thor
   end
   map '-v' => :version
   map '--version' => :version
+
+  desc 'setup [SOURCE]', 'install by environment variable'
+  def setup(source = nil)
+    env_key = 'GEM_SOURCE'
+    source ||= ENV[env_key]
+    abort "Not specify gem source or environment variable #{env_key}" if source.nil?
+    abort "Please use source key in #{Cgem.gem_sources.keys}" if source.start_with?('http')
+    use(source)
+  end
 end
 
 CgemCLI.start
