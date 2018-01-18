@@ -29,6 +29,11 @@ class CgemCLI < Thor
     puts Cgem::BundleMirror.new.get
   end
 
+  desc 'current', 'get current gem source url'
+  def current
+    puts Cgem.gemrc_sources
+  end
+
   desc 'version', 'show version'
   def version
     puts Cgem::VERSION
