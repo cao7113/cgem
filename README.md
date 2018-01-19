@@ -16,8 +16,9 @@ cgem use rchina
 cgem use default # rubygems
 cgem list
 cgem setup rchina
-GEM_SOURCE=rchina cgem setup
+CGEM_KEY=rchina cgem setup
 cgem status      # default
+cgem current     # get current gem source
 ```
 
 ## Development
