@@ -2,6 +2,7 @@
 gem_sources:
   rubygems: &default https://rubygems.org
   default: *default
-  rubychina: &rchina https://gems.ruby-china.org
+  #https://gems.ruby-china.org
+  rubychina: &rchina https://gems.ruby-china.com
   rchina: *rchina
   taobao: https://ruby.taobao.org
