@@ -6,3 +6,4 @@ gem_sources:
   rubychina: &rchina https://gems.ruby-china.com
   rchina: *rchina
   taobao: https://ruby.taobao.org
+  gemstash: http://gemstash.lh
