@@ -17,8 +17,11 @@ module Cgem
     end
 
     def sources_path
-      paths = [ env_sources_path, dot_sources_path, default_sources_path]
-      paths.compact.find { |p| File.exists?(p) }
+      sources_paths.find { |p| File.exists?(p) }
+    end
+
+    def sources_paths
+      [env_sources_path, dot_sources_path, default_sources_path].compact
     end
 
     def env_sources_path

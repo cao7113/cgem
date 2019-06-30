@@ -49,6 +49,16 @@ class CgemCLI < Thor
     abort "Please use source key in #{Cgem.gem_sources.keys}" if source.start_with?('http')
     use(source)
   end
+
+  desc 'path', 'show current cgem sources path'
+  def path
+    puts Cgem.sources_path 
+  end
+
+  desc 'paths', 'show all supported cgem sources path in order'
+  def paths
+    pp Cgem.sources_paths
+  end
 end
 
 CgemCLI.start
