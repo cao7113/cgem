@@ -1,0 +1,11 @@
+# https://taskfile.dev
+version: "3"
+tasks:
+  mk-higem: bundle gem cgem --exe --no-coc --no-mit --test=rspec --ci=github --linter=rubocop
+  ## in higem dir:
+  # bin/setup
+  # bundle list
+  # rake -AT
+  # rake spec   # run spec
+  # bin/console # go into console
+  # rake install:local

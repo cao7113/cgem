@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Cgem
   class BundleMirror
     attr_accessor :target, :mirror

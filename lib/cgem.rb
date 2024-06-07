@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require "cgem/version"
 require "cgem/bundle_mirror"
@@ -9,15 +11,16 @@ module Cgem
     end
 
     def gem_sources
-      configured_info['gem_sources'] rescue {}
+      configured_info['gem_sources'] 
+      #rescue {}
     end  
 
     def configured_info
-      YAML.load(File.read(sources_path))
+      YAML.load(File.read(sources_path), aliases: true)
     end
 
     def sources_path
-      sources_paths.find { |p| File.exists?(p) }
+      sources_paths.find { |p| File.exist?(p) }
     end
 
     def sources_paths
@@ -48,7 +51,7 @@ module Cgem
 
     def set_gemrc_sources(source)
       settings = {}
-      if File.exists?(dot_gemrc)
+      if File.exist?(dot_gemrc)
         settings = YAML.load(File.read(dot_gemrc))
       end
       settings[:sources] = ["#{source.chomp('/')}/"]
@@ -56,7 +59,7 @@ module Cgem
     end
 
     def gemrc_sources
-      return unless File.exists?(dot_gemrc)
+      return unless File.exist?(dot_gemrc)
       settings = YAML.load(File.read(dot_gemrc))
       settings[:sources]
     end
